@@ -1,0 +1,141 @@
+#<DISCLAIMER>
+#FILE MAYBE SUBJECT TO AGE, USE WITH CAUTION AND WITH AS-IS WITH ABSOLUTELY NO WARRANTY OR RESPONSIBILITY TO WHAT YOU TO YOUR SYSTEM< YOUR LOVED ONES OR YOURSELF OR ANYTHING ELSE IMPORTANT TO YOU OR OF SIGNIFICANCE. 
+#THE WISDOM PROVIDED HERE MAY CHANGE WITH THE TIMES AND MAY NOT BE TRUE,CONVENIENT OR SIMPLY UN-WORKABLE DEPENDING ON THE TIME.
+
+(BONUS(actually not so much) Type in ILoveCandy in [options] section of /etc/pacman.conf
+
+0. Set ParallelDownloads to at least 5 or lesser for faster package downloads.
+   Check out /etc/pacman.conf for more options and configure as you want.
+   Don't forget to disable the flags you don't need to compile in /etc/makepkg.conf ,
+   Read https://wiki.archlinux.org/title/Makepkg
+
+1. Don't install kernel headers if you don't need it.
+
+2. Don't install 32 bit libraries unless you need it. Use 64.
+
+3. Set your locale correctly(whether as user or admin) and it's best to ensure perfect sync with one specific locale.
+
+4. Don't blindly install from the AUR. ALWAYS read your PKGBUILDs unless you know what you're doing/the source is trustable.
+
+5. Use paru and bat(for color) for easy PKGBUILD reviewing.
+
+5. Install downgrade, convenient for one single-specific package downgrade.
+
+6. Learn to use the Arch Linux Archive(ALA) properly along with its use in pacman.conf and snapshots, Arch wouldn't be Arch without it.
+   https://wiki.archlinux.org/title/Arch_Linux_Archive
+   
+   Pro-tip(Unless necessary, from personal experience one only needs to set [extra] repo to an ALA snapshot to downgrade stuff 
+   and leave the core packages and libraries alone. Unless you need to downgrade [core] as well in which case, do it via live usb.
+   
+   Don't forget to enable [community] repo from ALA if downgrading even more earlier 2023 {Eg, KDE Plasma 5.27} although I doub't you'll need it.
+   
+   
+7. If doing a reinstall of Arch, depending on your reason:
+    i)Backup your config files and personal data
+    (mostly /etc (including /etc/pacman.d /etc/pacman.conf /etc/makepkg.conf andother Arch related config files), /home and /boot/grub, 
+    your untracked configs at /usr/share/).
+    
+    ii)Backup your package lists: See: https://wiki.archlinux.org/title/System_maintenance#Backup (and #Clean the filesystem)
+
+8. CPUPower-GUI is excellent tool for managing CPU performance, or you can use regular CPUPower for use in-terminal. 
+   Use its systemd user service along with a profile of your choice to boot with cpu parameters for your user only, keeps thing clean and safe,
+   instead of implementing system-wide.
+   
+9. If using Plasma, you can use KDE Menu Editor to edit your app icons in the Application Launcher, including categories.
+
+10. Emulators work best on Linux and Linux gaming is best on Latest wine and emulator software, so Arch is your Linux for the job.
+
+11. Icon themes are not guranteed to work in all Desktop Environments, so don't blame the system when it shows the wrong icons, 
+    provided it's through no fault of its own.
+
+12. Use wine-cachyos{from CachyOS OS, google to set it up) or wine-ge(either with Lutris or system-wide,
+    (you're on your own either way and further guidance is beyond the scope of this file)).
+    See https://wiki.archlinux.org/title/Wine
+    The official package from Arch is the wine-devel version and is simply named wine.
+    
+
+13. Use Vesktop(Flatpak(added privacy ;) ). Execellent client with screensharing.
+
+14. GRUB is efficient and is well documented and supported across all Distros. Including boot repair. Run grub-mkconfig after install.
+    Install os-prober and efibootmgr and enable OS-Prober from /etc/default/grub for it to detect other OSes.
+
+15. Need swap? Swapfile, read https://wiki.archlinux.org/title/Swap#Swap_file_creation 
+    Also see Hibernation(Excellent quality of life tool): https://wiki.archlinux.org/title/Hibernation
+
+16. Install the necessary archiving libraries(unrar,unzip,etc) Hint: It'll be present as an optional install when you install GUI packages like ark
+
+17. Don't forget to configure your network before reobooting after install,
+    (Install Network-manager and enable service or use systemd-networkd) Also wpa_supplicant for wireless)
+
+18. Systemd-timesyncd for simple Desktops where you just want to see the time and do nothing else.
+    Chrony for servers and time-based, intensive or critical workloads and use-cases.
+
+19. Don't install unnecessary packages, don't install too much bleeding edge, 
+    learn to stick with what works but also try new stuff at the same time and switch when necessary.
+    Learn to look for and use stable software the most if you don't want to waste time downgrading when something breaks.
+    
+18. Pragmatism is at the root of the philosophy of Arch Linux. Be pragmatic and not overly idealistic.
+
+19. Don't install too much from the AUR, use only when the specific package is necessary. Try to look for alternatives from the official repos.
+    (Eg. fbgrab instead of fbcat(AUR))
+
+21. Avoid major Plasma (x.x.0) releases, they come with unplanned changes at first, wait for a few more point releases and then upgrade.
+    - But speaking of that, any major release in free software isn't always the stable smooth software upgrade you may think it'd be.
+    If things break, rollback using ALA to the date before the plasma update release on the repos.
+    
+    Add to, in pacman.conf to this effect(see example below) the related packagegroups and packages related to KDE
+    and all other qt tools(since Plasma depends on those libraries as well as other qt tools and apps, 
+    breakage is possible if you upgrade either to the latest qt library or package but not both(such as in the case of qbittorrent)
+    [NOTE: Partial upgrades are not supported, use at your own risk and without any official support]:
+    
+    (What is presented here is only for example purposes, you may use them for your own, but understand first what it does before doing so)
+    #IgnorePkg = *qt *qt6 qbittorrent
+    #firefox linux linux-zen linux-lts shared-mime-info
+    #IgnoreGroup = qt6 plasma kf6 kde-applications
+    Add the second line to avoid downgrading major and stable packages from the archive like the kernel(see (6))
+    
+22. NO, GNOME is not BLOATED. It's very simple and is lesser in size than even KDE Plasma.
+    People just complain about its looks and workings and it is catered for a specific kind of general user-base with simplicity at it's core.
+    It's also very stable, unless if you use extensions which are community based, you can install them system-wide from the AUR
+    or the few from the official repos, although it's best to install them user-wide with extension-manager(AUR)
+    See https://wiki.archlinux.org/title/GNOME
+
+    From personal experience, it's smoother. Could be placebo but food for thought. 
+
+Always try new stuff. Good luck and happy journey fellow Archer.
+
+
+[PROTIPS]
+
+Want to remove stuff from your bash history?
+    Use history -d [fromlinenumber-tolinenumber]
+
+Use kde-gtk-config and set to breeze to achieve GTK and Qt harmony across apps when using KDE with Breeze.
+    See, https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
+Set widget.use-xdg-desktop-portal.file-picker to 1 in Firefox instead of 2 to use KDE file picker.
+Install plasma5-integration if you need Plasma 5/Qt5 apps to work nice with Plamsa 6, personally it wasn't of much use.
+
+Enable GPU passthrough in BIOS for use with QEMU/KVM with virt-manager to use VMs more efficiently and make use of 3D acceleration.
+
+Recommendations:
+- GParted is the best when it comes to GUI partitioning. cfdisk in terminal.
+
+- Geany, light-weight IDE similar to VScode, installable in official repos. Check out vscodium(AUR)
+
+- gThumb, comfy image viewer with video play support along with a few image editing basic tools.
+
+- BalenaEtcher(from github for 64bit builds) for easy Linux live CD flashing. For Windows, Rufus of course.
+
+- Install DXVK and GalliumNine(A bit buggy, you can use DXVK instead for DX9 if you don't want GalliumNine) for performance improvements with wine.
+
+- OBS for screen recording, install obs-vkcapture(AUR) for game capture. https://wiki.archlinux.org/title/Open_Broadcaster_Software
+
+- Use dolphin-plugins for tools like, easy iso mounting in dolphin file manager.
+ 
+- Check out LXQt and Xfce for stable and lightweight retro looking Desktop Environments.
+ 
+ 
+ 
+
+
+
