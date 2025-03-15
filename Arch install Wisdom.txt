@@ -133,6 +133,8 @@ Recommendations:
 - Use dolphin-plugins for tools like, easy iso mounting in dolphin file manager.
  
 - Check out LXQt and Xfce for stable and lightweight retro looking Desktop Environments.
+
+- Check out https://github.com/androlabs/emoji-archlinux for when you're installing noto-fonts-emoji and other fonts which also has a few emojis particularly monochrome that replace the ones in Noto Color Emoji when using them, a real bugger but this fixes it. Reinstall noto-fonts-emoji after to properly build fc-cache.
  
  
  
