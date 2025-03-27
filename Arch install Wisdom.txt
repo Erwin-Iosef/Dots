@@ -4,6 +4,11 @@
 
 (BONUS(actually not so much) Type in ILoveCandy in [options] section of /etc/pacman.conf
 
+-1. Use pacstrap -iKP for:
+    i = Get package confirmation prompts
+    K = Initialize empty keyring
+    P = Copy host pacman config(for when you're installing from another installation and you want to copy your config over)
+
 0. Set ParallelDownloads to at least 5 or lesser for faster package downloads.
    Check out /etc/pacman.conf for more options and configure as you want.
    Don't forget to disable the flags you don't need to compile in /etc/makepkg.conf ,
