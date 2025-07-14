@@ -50,8 +50,8 @@ unset TERMCAP
 
 # Man is much better than us at figuring this out
 unset MANPATH
-
-echo -e "\e]P700aaaa\n$(fortune)"
+#\e]P700aaaa
+echo -e "\n$(fortune)"
 
 if [ -f /etc/welcome/welcome_${USER} ]; then
      echo -e "\n`cat /etc/welcome/welcome_${USER};`\n"
