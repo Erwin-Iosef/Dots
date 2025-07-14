@@ -6,6 +6,7 @@ alias startw=startplasma-wayland
 alias logoff='sudo pkill -u $USER'
 alias yay=paru
 alias neofetch=fastfetch
+EDITOR=vim
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
