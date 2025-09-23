@@ -23,91 +23,91 @@
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+            "format": "\u001b[90m┌──────────────────────Hardware──────────────────────────┐"
         },
         {
             "type": "host",
-            "key": " PC  ",
+            "key": " Host    ",
             "keyColor": "green"
         },
         {
             "type": "cpu",
-            "key": "│ ├  ",
+            "key": "│ ├  CPU ",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "│ ├󰍛  ",
+            "key": "│ ├󰍛  GPU ",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "└ ╰󰍛  ",
+            "key": "└ ╰󰍛  Mem ",
             "keyColor": "green"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
         },
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+            "format": "\u001b[90m┌──────────────────────Software──────────────────────────┐"
         },
         {
             "type": "os",
-            "key": " OS  ",
+            "key": " System     ",
             "keyColor": "yellow"
         },
         {
             "type": "kernel",
-            "key": "│ ├  ",
+            "key": "│ ├  Kernel ",
             "keyColor": "yellow"
         },
         {
             "type": "bios",
-            "key": "│ ├  ",
+            "key": "│ ├  Bios   ",
             "keyColor": "yellow"
         },
         {
             "type": "packages",
-            "key": "│ ├󰏖  ",
+            "key": "│ ├󰏖  Pkgs   ",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "└ ╰  ",
+            "key": "└ ╰  Shell  ",
             "keyColor": "yellow"
         },
         "break",
         {
             "type": "de",
-            "key": " DE  ",
+            "key": " DE         ",
             "keyColor": "blue"
         },
         {
             "type": "lm",
-            "key": "│ ├  ",
+            "key": "│ ├  DM     ",
             "keyColor": "blue"
         },
         {
             "type": "wm",
-            "key": "│ ├  ",
+            "key": "│ ├  WM     ",
             "keyColor": "blue"
         },
         {
             "type": "wmtheme",
-            "key": "│ ├󰉼  ",
+            "key": "│ ├󰉼  Theme  ",
             "keyColor": "blue"
         },
         {
             "type": "terminal",
-            "key": "└ ╰  ",
+            "key": "└ ╰  Term   ",
             "keyColor": "blue"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
         },
         "break",
         {
