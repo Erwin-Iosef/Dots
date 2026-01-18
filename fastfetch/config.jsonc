@@ -15,8 +15,8 @@
             "2": "red",
             "3": "green",
             "4": "black",
-            "6": "yellow",
-            "5": "dim_yellow"
+            "5": "yellow",
+            "6": "dim_magenta"
         }
     },
     "modules": [
