@@ -35,16 +35,16 @@ my $instrut =
   "|  /toggle twtopic_instruct |Startup instructions  |\n".
   "\`--------------------------------------------------'";
 
-my $timeout=0;
-my $start_pos=0;
-my $flipflop=0;
+my $timeout;
+my $start_pos;
 my $size;
 my $topic;
+my $time;
 my @mirc_color_arr = ("\0031","\0035","\0033","\0037","\0032","\0036","\00310","\0030","\00314","\0034","\0039","\0038","\00312","\00313","\00311","\00315","\017");
 
 # Setup timer
 sub setup {
-   my $time = Irssi::settings_get_int('twtopic_refresh');
+   $time = Irssi::settings_get_int('twtopic_refresh');
    Irssi::timeout_remove($timeout) if ($timeout != 0);
 
    if ($time < 10) {
@@ -93,13 +93,16 @@ sub get_topic {
 
         # remove mIRC color codes
         $topic =~ s/(\003\d{1,2}|\002|\001)//g;
-	scrolltopic($start_pos,$size,$topic);
+        if($topic eq "") {
+            $topic = "[-=-=-=-=-=-=-= No Topic =-=-=-=-=-=-=-]";
+            $start_pos=$size/2+21;
+        }
+        else { scrolltopic($start_pos,$size,$topic); }
     }
     showtopic($start_pos,$size,$topic);
 }
 
 sub showtopic {
-    $topic = "[-=-=-=-=-=-=-= No Topic =-=-=-=-=-=-=-]" if $topic eq "";
     my $extra_str = " " x ($size * 2);   # extra padding for scrolling
     $topic=substr($extra_str, 0, $size) . $topic . $extra_str;
 
@@ -111,10 +114,8 @@ sub scrolltopic {
     my @str_arr = split //, $topic;
     my $total = $#str_arr;
     if ($start_pos > $total + $size) { $start_pos = 0; }
-
-   if (!$flipflop) { $flipflop = 1; return $topic; }
-    $start_pos++;
-    $flipflop = 0;
+    $start_pos+=0.5;
+    return $topic;
 }
 
 # Redraw status bar
